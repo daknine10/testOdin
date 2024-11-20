@@ -30,17 +30,11 @@ function ceasarCipher(string, number) {
 
     for (let letter of splitString) {
         if (toCheckLower.includes(letter)) {
-            index = toCheckLower.indexOf(letter) + number
-            if (index >= 26) {
-                index = index - 26
-            }
+            index = (toCheckLower.indexOf(letter) + number) % 26
             output += toCheckLower[index]
         }
         else if (toCheckUpper.includes(letter)) {
-            index = toCheckUpper.indexOf(letter) + number
-            if (index >= 26) {
-                index = index - 26
-            }
+            index = (toCheckUpper.indexOf(letter) + number) % 26
             output += toCheckUpper[index]
         }
         else {
@@ -50,8 +44,17 @@ function ceasarCipher(string, number) {
     return output
 }
 
+function analyzeArray(array) {
+    const avg = array.reduce((accumulator, currentValue) => accumulator + currentValue) / array.length
+    const min = Math.min(...array)
+    const max = Math.max(...array)
+    const length = array.length
+    return {average: avg, min: min, max: max, length: length}
+}
+
 module.exports = {};
 module.exports.capitalize = capitalize
 module.exports.reverseString = reverseString
 module.exports.calculator = calculator
 module.exports.ceasarCipher = ceasarCipher
+module.exports.analyzeArray = analyzeArray

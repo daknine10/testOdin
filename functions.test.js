@@ -22,3 +22,15 @@ test("Letters should be shifted by the given number", () => {
     expect(Functions.ceasarCipher("heLLo", 3)).toBe("khOOr")
     expect(Functions.ceasarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!")
 })
+
+test("Output should be an object with avg, min, max and length", () => {
+    const array = [1,8,3,4,2,6]
+    const object = {
+            average: 4,
+            min: 1,
+            max: 8,
+            length: 6
+         };
+    
+    expect(Functions.analyzeArray(array)).toEqual(object);
+})
